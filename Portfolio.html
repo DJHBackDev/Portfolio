@@ -9,6 +9,26 @@
   <link  rel="icon" type="image/x-icon" href="LogoWeb.png"/>
 </head>
 <body>
+<!--Carga de pagina-->
+  <!-- Contenedor de la animación de carga -->
+  <div id="loader" class="loader">
+    <div class="cell d-0"></div>
+    <div class="cell d-1"></div>
+    <div class="cell d-2"></div>
+  
+    <div class="cell d-1"></div>
+    <div class="cell d-2"></div>
+    
+    
+    <div class="cell d-2"></div>
+    <div class="cell d-3"></div>
+    
+    
+    <div class="cell d-3"></div>
+    <div class="cell d-4"></div>
+  </div>
+
+<div id="content" class="hidden">
   <!--Barra de navegacion-->
   <header>
     <a class="logo">
@@ -28,6 +48,14 @@
       <a href="#contact" class="nav-link">CONTÁCTAME</a>
     </nav>
   </header>
+  <button class="button">
+    <svg viewBox="0 0 384 512" class="svgIcon">
+      <path
+        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+      ></path>
+    </svg>
+  </button>
+  
   <div class="info">
     <h2>
       <div id="texto-container">Hola, Soy<br>Samuel Ortiz</div>
@@ -97,11 +125,60 @@
   </div>
 
   </section>
-
+  <h1 class="titulo_pro">Contactame</h1>
   <section id="contact">
-    <h1 class="titulo_pro">Contactame</h1>
+    <div class="form-container">
+      <form class="form" id="form">
+        <div class="form-group">
+          <label for="name">nombre</label>
+          <input required="" name="name" id="name" name="name" type="text" autocomplete="on">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input required="" name="email" id="email" type="text" autocomplete="on">
+        </div>
+        <div class="form-group">
+          <label for="textarea">How Can We Help You?</label>
+          <textarea required="" cols="50" rows="10" id="textarea" name="message" autocomplete="on">           </textarea>
+        </div>
+        <button type="submit" class="form-submit-btn" id="button">Submit</button>
+      </form>
+    </div>
+    
   </section>
-  <script src="js/card_pro.js"></script>
+  </div>
   <script src="js/scrollbar.js"></script>
+  <script src="js/botton.js"></script>
+  <script src="js/animate.js"></script>
+
+  <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('9F1-Oze9Rpy0WBkv_')
+
+</script>
+<script>
+  const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_ct9dv3r';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Submit';
+      alert('Mensaje enviado Correctamente');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
+</script>
+
 </body>
 </html>
