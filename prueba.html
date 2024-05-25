@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botón con Animación de Color</title>
+  <style>
+    .boton {
+      color: white; /* Color del texto */
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      animation: cambioColor 5s infinite alternate ease; /* Aplicación de la animación */
+    }
+
+    @keyframes cambioColor {
+      0% { background-image: linear-gradient(30deg, #3498db, #2980b9); } /* Color inicial */
+      100% { background-image: linear-gradient(30deg, #2980b9, #3498db); } /* Color final, igual al inicial */
+    }
+  </style>
+</head>
+<body>
+
+<button class="boton">Haz clic</button>
+
+</body>
+</html>
