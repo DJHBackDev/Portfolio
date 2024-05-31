@@ -28,3 +28,28 @@ window.addEventListener('load', function() {
     hideLoader();
   }
 });
+
+// Obtén el botón y el formulario
+const submitButton = document.querySelector('.form-submit-btn');
+const form = document.querySelector('form'); // Ajusta el selector si es necesario
+
+// Añade un manejador de eventos para el envío del formulario
+form.addEventListener('submit', (event) => {
+  // Evita que el formulario se envíe de forma predeterminada
+  event.preventDefault();
+
+  // Establece el contenido del botón como vacío
+  submitButton.textContent = '';
+
+  // Agrega la clase 'loading' al botón
+  submitButton.classList.add('loading');
+
+  // Realiza la lógica para enviar el formulario
+  //...
+
+  // Después de un segundo, quita la clase 'loading' del botón
+  setTimeout(() => {
+    submitButton.classList.remove('loading');
+    submitButton.textContent = 'Submit'; // Restaura el texto original
+  }, 1000); // 1000 milisegundos = 1 segundo
+});
