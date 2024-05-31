@@ -1,8 +1,8 @@
-// script.js
+// animate.js
 
 window.addEventListener('load', function() {
   // Tiempo mínimo para mostrar la animación de carga (en milisegundos)
-  const minimumLoadingTime = 8000; // 2 segundos
+  const minimumLoadingTime = 8000; // 8 segundos
 
   // Registrar el tiempo en que comenzó la carga
   const startTime = performance.now();
