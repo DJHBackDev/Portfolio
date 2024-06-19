@@ -132,6 +132,7 @@
   /* Estilos del botón mientras carga */
   background-color: #313131; /* Cambia el color de fondo */
   border-color: #e81cff; /* Cambia el color de la frontera */
+  cursor: wait; /* Cambia el cursor a espera */
   pointer-events: none; /* Deshabilita los eventos del ratón */
 }
 
