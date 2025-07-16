@@ -99,6 +99,7 @@ nav a:hover{
     padding-left: 35px;
     padding-right: 50%;
     margin-right: 140px;
+    margin-bottom: 50px;
 }
 
 .buttonDownload{
@@ -240,6 +241,7 @@ nav a:hover{
     cursor: pointer;
     color: white;
     margin: 40px;
+
   }
   .card_pro2 h4{
     margin: 0;
@@ -297,7 +299,10 @@ nav a:hover{
   }
   
   .patron {
-    position: relative;
+    /* REEMPLAZA TU CÓDIGO .patron CON ESTE */
+  position: absolute;
+  inset: 0; /* Rellena todo el espacio de la tarjeta padre */
+  z-index: 0;
     width: 100%;
     height: 100%;
     /* control ize */
@@ -412,35 +417,146 @@ nav a:hover{
     background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
   }
   
+/* ======================================= */
+/* Estilos Responsivos          */
+/* ======================================= */
 
-  @media screen and (max-width: 600px) {
-
-    .text {
-      display: flex;
-      flex-direction: row;
-    }
-  
-    .text p {
-      display: flex;
-      padding-right: 0%;
-      margin: auto;
-      margin-top: 20px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .info h3 span {
-    margin: 20px;
-    }
-
-    .Github, .Github:hover, .Github_text {
-      display: none;
-    }
-
-    .buttonDownload {
-      align-items: center;
-      margin-left: auto;
-    }
-
-    
+/* --- Para Tablets (hasta 768px) --- */
+@media screen and (max-width: 768px) {
+  .text p {
+    padding-right: 35px; /* Reduce el espacio a la derecha del párrafo principal */
+    margin-right: 0;
   }
+
+  .skills {
+    flex-direction: column; /* Apila las cajas de habilidades verticalmente */
+    align-items: center;
+  }
+
+  .cajas {
+    width: 90%; /* Las cajas ocupan más ancho para mejor lectura */
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  .control_fondo {
+    flex-direction: column; /* Apila las tarjetas de proyectos */
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card_pro2 {
+    width: 80%;
+    max-width: 350px; /* Limita el ancho de la tarjeta en tablets */
+  }
+}
+
+
+/* --- Para Celulares (hasta 600px) --- */
+/* Esta sección combina tus reglas existentes con las nuevas para un mejor resultado. */
+@media screen and (max-width: 600px) {
+
+  /* --- Ajustes Generales --- */
+  body {
+    overflow-x: hidden; /* Previene el scroll horizontal no deseado */
+  }
+
+  /* --- Barra de Navegación --- */
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    padding: 15px 0;
+    flex-direction: column; /* Apila los enlaces de navegación */
+    gap: 15px; /* Añade espacio entre los enlaces */
+  }
+
+  .Github, .Github:hover {
+    display: none; /* Oculta el botón de Github para ahorrar espacio */
+  }
+
+  /* --- Sección de Información Principal --- */
+  .info h2 {
+    font-size: 48px; /* Reduce el tamaño del título "Hola, Soy..." */
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .info h3 {
+    font-size: 24px; /* Reduce el tamaño del subtítulo animado */
+    text-align: center;
+    display: block; /* Asegura que ocupe toda la línea */
+    margin: 20px 0;
+  }
+
+  /* --- Párrafo de Descripción --- */
+  .text {
+      display: block;
+  }
+  .text p {
+    padding: 0 25px; /* Añade padding a los lados para que el texto no toque los bordes */
+    margin: 0 auto 40px;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  /* --- Cuadrícula de librerías --- */
+  .librerias-grid {
+    grid-template-columns: repeat(2, 1fr); /* Mantiene las 2 columnas que pediste */
+  }
+
+  /* --- Proyectos --- */
+  .titulo_pro {
+      margin-top: 40px;
+  }
+
+  .card_pro2 {
+      width: 90%; /* La tarjeta de proyecto ocupa casi todo el ancho */
+  }
+}
+  /* --- Estilos para la caja de Librerías en 2 columnas y negrita --- */
+
+.librerias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.librerias-grid img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+/* Bloque modificado */
+.librerias-grid p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold; /* <-- Añade esta línea */
+}
+
+/* --- Estilos del Footer (Derechos Reservados) --- */
+footer {
+  text-align: center;
+  padding: 25px 0;
+  margin-top: 50px; /* Espacio para separarlo del contenido de arriba */
+  border-top: 1px solid #3a3a4a; /* Línea divisora sutil */
+  color: #a0a0a0; /* Un color de texto más suave */
+  font-size: 14px;
+}
+
+footer p {
+  margin: 0; /* Quita cualquier margen por defecto del párrafo */
+}
+
+/* AÑADE ESTE CÓDIGO NUEVO */
+.card_pro2 > h4,
+.card_pro2 > p,
+.card_pro2 > .button-ligth {
+  position: relative;
+  z-index: 1; /* Coloca el texto en una capa superior, por encima del patrón */
+}
